@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Startpage</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="tailwind.config.js"></script>
+<link href="style.css" rel="stylesheet"/>
+</head>
+<body class="bg-background text-on-background font-body-main selection:bg-primary-container selection:text-on-primary-container">
+<!-- Sidebar Navigation -->
+<aside class="hidden lg:flex flex-col h-screen w-72 left-0 fixed p-md z-40 bg-surface-container-low border-r border-surface-variant/20 overflow-y-auto">
+<div class="mb-xl px-md pt-md">
+<h1 class="text-header-cat font-header-cat uppercase tracking-widest text-tertiary">Startpage</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant mt-xs">cfelix home</p>
+</div>
+<nav class="flex-grow space-y-md px-md">
+<!-- Dashboard Home -->
+<a class="flex items-center gap-md bg-secondary-container text-on-secondary-container rounded-lg px-md py-sm transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-medium">Home</span>
+</a>
+<!-- Development Hierarchical Menu -->
+<div class="space-y-sm">
+<button class="w-full flex items-center justify-between text-on-surface-variant px-md py-sm hover:bg-surface-variant hover:text-on-surface rounded-lg transition-all" onclick="toggleMenu('dev-sub')">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="font-medium">Desenvolvimento</span>
+</div>
+<span class="material-symbols-outlined text-[18px]" id="dev-sub-icon">expand_more</span>
+</button>
+<div class="ml-[44px] flex flex-col space-y-xs hidden" id="dev-sub">
+<a class="text-label-sm py-xs text-on-surface-variant hover:text-primary transition-colors" href="https://github.com">GitHub</a>
+<a class="text-label-sm py-xs text-on-surface-variant hover:text-primary transition-colors" href="https://stackoverflow.com">Stack Overflow</a>
+<a class="text-label-sm py-xs text-on-surface-variant hover:text-primary transition-colors" href="https://chatgpt.com">ChatGPT</a>
+</div>
+</div>
+<!-- Acadêmico Hierarchical Menu -->
+<div class="space-y-sm">
+<button class="w-full flex items-center justify-between text-on-surface-variant px-md py-sm hover:bg-surface-variant hover:text-on-surface rounded-lg transition-all" onclick="toggleMenu('acad-sub')">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-medium">Acadêmico</span>
+</div>
+<span class="material-symbols-outlined text-[18px]" id="acad-sub-icon">expand_more</span>
+</button>
+<div class="ml-[44px] flex flex-col space-y-xs hidden" id="acad-sub">
+<a class="text-label-sm py-xs text-on-surface-variant hover:text-primary transition-colors" href="https://si3.ufc.br">SIGAA</a>
+<a class="text-label-sm py-xs text-on-surface-variant hover:text-primary transition-colors" href="https://solar.ufc.br">Solar</a>
+<a class="text-label-sm py-xs text-on-surface-variant hover:text-primary transition-colors" href="https://biblioteca.ufc.br">Biblioteca</a>
+</div>
+</div>
+<!-- Social Hierarchical Menu -->
+<div class="space-y-sm">
+<button class="w-full flex items-center justify-between text-on-surface-variant px-md py-sm hover:bg-surface-variant hover:text-on-surface rounded-lg transition-all" onclick="toggleMenu('social-sub')">
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-medium">Social</span>
+</div>
+<span class="material-symbols-outlined text-[18px]" id="social-sub-icon">expand_more</span>
+</button>
+<div class="ml-[44px] flex flex-col space-y-xs hidden" id="social-sub">
+<a class="text-label-sm py-xs text-on-surface-variant hover:text-primary transition-colors" href="https://reddit.com">Reddit</a>
+<a class="text-label-sm py-xs text-on-surface-variant hover:text-primary transition-colors" href="https://youtube.com">YouTube</a>
+<a class="text-label-sm py-xs text-on-surface-variant hover:text-primary transition-colors" href="https://twitter.com">X / Twitter</a>
+</div>
+</div>
+</nav>
+<div class="mt-auto p-md space-y-sm border-t border-surface-variant/10">
+<a class="flex items-center gap-md text-on-surface-variant px-md py-sm hover:bg-surface-variant hover:text-on-surface rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium">Configurações</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:ml-72 min-h-screen flex flex-col">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center px-gutter py-md max-w-container-max mx-auto w-full bg-background">
+<div class="flex items-center gap-xl">
+<nav class="hidden md:flex items-center gap-lg">
+<a class="text-primary font-medium border-b-2 border-primary pb-1 transition-all" href="#">Dashboard</a>
+</nav>
+</div>
+</header>
+<!-- Hero Section: Clock & Greeting -->
+<section class="flex flex-col items-center justify-center pt-xxl pb-xl px-gutter text-center">
+<h2 class="font-display text-display text-on-surface mb-sm" id="greeting">Hello World</h2>
+<div class="text-[84px] font-display font-extrabold tracking-tighter text-primary-container mb-xl" id="clock">
+            00:00
+        </div>
+<!-- Search Bar -->
+<form action="https://www.google.com/search" class="w-full max-w-[600px] relative group" method="GET">
+<div class="absolute inset-y-0 left-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+</div>
+<input class="w-full bg-surface border-none rounded-full py-md pl-[52px] pr-md text-body-main text-on-surface placeholder:text-on-surface-variant zen-shadow focus:ring-2 focus:ring-primary-container transition-all" name="q" placeholder="Pesquisar..." type="text" autofocus autocomplete="off"/>
+</form>
+</section>
+<!-- Minimalist Link List Grid -->
+<section class="max-w-container-max mx-auto w-full px-gutter pb-xl">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-xl">
+<!-- Development List -->
+<div class="space-y-md">
+<h3 class="font-header-cat text-header-cat uppercase tracking-widest text-tertiary border-b border-surface-variant/20 pb-xs mb-sm">Desenvolvimento</h3>
+<div class="flex flex-col space-y-sm">
+<a class="text-on-surface hover:text-primary transition-colors duration-200" href="https://github.com">GitHub</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-200" href="https://stackoverflow.com">Stack Overflow</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-200" href="https://chatgpt.com">ChatGPT</a>
+</div>
+</div>
+<!-- Acadêmico List -->
+<div class="space-y-md">
+<h3 class="font-header-cat text-header-cat uppercase tracking-widest text-tertiary border-b border-surface-variant/20 pb-xs mb-sm">Acadêmico</h3>
+<div class="flex flex-col space-y-sm">
+<a class="text-on-surface hover:text-primary transition-colors duration-200" href="https://si3.ufc.br">SIGAA</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-200" href="https://solar.ufc.br">Solar</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-200" href="https://biblioteca.ufc.br">Biblioteca</a>
+</div>
+</div>
+<!-- Social List -->
+<div class="space-y-md">
+<h3 class="font-header-cat text-header-cat uppercase tracking-widest text-tertiary border-b border-surface-variant/20 pb-xs mb-sm">Social</h3>
+<div class="flex flex-col space-y-sm">
+<a class="text-on-surface hover:text-primary transition-colors duration-200" href="https://reddit.com">Reddit</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-200" href="https://youtube.com">YouTube</a>
+<a class="text-on-surface hover:text-primary transition-colors duration-200" href="https://twitter.com">X / Twitter</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- RU Section -->
+<section class="flex-grow max-w-container-max mx-auto w-full px-gutter pb-xxl">
+    <div class="space-y-md border-t border-surface-variant/20 pt-xl">
+        <h3 class="font-header-cat text-header-cat uppercase tracking-widest text-tertiary pb-xs mb-sm">Restaurante Universitário</h3>
+        <div id="ru-content" class="grid grid-cols-1 md:grid-cols-3 gap-xl bg-surface-container-low p-xl rounded-lg zen-shadow">
+             <div class="loading text-on-surface-variant italic">Sincronizando com a página da UFC...</div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="mt-auto border-t border-surface-variant/10">
+<div class="flex justify-between items-center px-gutter py-xl max-w-container-max mx-auto w-full">
+<p class="text-label-sm font-label-sm text-on-surface-variant opacity-80">
+                © 2026 Startpage.
+            </p>
+</div>
+</footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

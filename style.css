@@ -1,0 +1,16 @@
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+}
+.zen-shadow {
+    box-shadow: 0 20px 40px -10px rgba(13, 19, 30, 0.5);
+}
+.sub-menu-item:hover {
+    color: var(--tw-color-primary);
+}
